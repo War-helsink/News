@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 12px 24px;
+    background-color: white;
+    border-top: solid 1px #f2f4f5;
+}
+
+.title {
+    font-size: 28px;
+}
