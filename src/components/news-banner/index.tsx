@@ -1,8 +1,8 @@
 import React from "react";
 import { formatTimeAgo } from "../../helpers";
-import Image from "../image";
+import Image from "components/image";
 import styles from "./styles.module.scss";
-import type { NewItem } from "../../core/interface";
+import type { NewItem } from "core/interface";
 
 interface NewsBannerProps {
 	item?: NewItem;

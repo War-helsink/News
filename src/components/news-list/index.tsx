@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { NewItem } from "../../core/interface";
+import type { NewItem } from "core/interface";
 
-import NewsItem from "../news-item";
+import NewsItem from "components/news-item";
 
 interface NewsListProps {
 	news: NewItem[];

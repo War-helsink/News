@@ -1,5 +1,5 @@
 import React from "react";
-import { formatDate } from "../../helpers";
+import { formatDate } from "helpers";
 import styles from "./styles.module.scss";
 
 class Header extends React.Component {

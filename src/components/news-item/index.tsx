@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { NewItem } from "../../core/interface";
-import { formatTimeAgo } from "../../helpers";
+import type { NewItem } from "core/interface";
+import { formatTimeAgo } from "helpers";
 
 interface NewsItemProps {
 	item: NewItem;
