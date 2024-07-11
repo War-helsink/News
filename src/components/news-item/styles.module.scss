@@ -5,15 +5,13 @@
     gap: 12px;
 }
 
-.wrapper {
+.img {
     width: 64px;
     height: 64px;
 
-    background-position: center;
     background-color: #f2f4f5;
-    background-size: cover;
 
-    flex-shrink: 0;
+    object-fit: cover;
 }
 
 .info {

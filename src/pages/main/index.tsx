@@ -14,6 +14,7 @@ interface MainState {
 	currentPage: number;
 	news: NewItem[];
 	isLoading: boolean;
+	keywords: string
 }
 
 class Main extends Component<unknown, MainState> {
@@ -22,6 +23,7 @@ class Main extends Component<unknown, MainState> {
 		news: [],
 		isLoading: true,
 		totalPages: 10,
+		keywords: "",
 	};
 
 	componentDidMount() {
@@ -64,7 +66,7 @@ class Main extends Component<unknown, MainState> {
 				{!this.state.isLoading ? (
 					<NewsList news={this.state.news} />
 				) : (
-					<Skeleton type="item" count={10} />
+					<Skeleton type="item" count={this.state.totalPages} />
 				)}
 
 				<Pagination

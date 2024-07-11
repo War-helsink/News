@@ -38,39 +38,45 @@ class Pagination extends React.Component<PaginationProps> {
 					shape="round"
 					fill="clear"
 					type="button"
+					size="small"
 					onClick={this.prevPage}
 					disabled={this.props.currentPage === 1}
+					className={`${styles.button} ${
+						this.props.currentPage === 1 ? styles.active : ""
+					}`}
 				>
 					<IonIcon slot="icon-only" icon={arrowBack} />
 				</IonButton>
-				<div className={styles.list}>
-					{[...Array(this.props.totalPages)].map((_, index) => (
-						<IonButton
-							shape="round"
-							fill="clear"
-							className={`${
-								index + 1 === this.props.currentPage ? "active" : ""
-							}`}
-							color={
-								index + 1 === this.props.currentPage ? "danger" : undefined
-							}
-							disabled={index + 1 === this.props.currentPage}
-							key={index + 1}
-							type="button"
-							onClick={() => {
-								this.selectPage(index + 1);
-							}}
-						>
-							<span slot="icon-only">{index + 1}</span>
-						</IonButton>
-					))}
-				</div>
+				{[...Array(this.props.totalPages)].map((_, index) => (
+					<IonButton
+						shape="round"
+						fill="clear"
+						className={`${styles.button} ${
+							index + 1 === this.props.currentPage ? styles.active : ""
+						}`}
+						disabled={index + 1 === this.props.currentPage}
+						size="small"
+						key={index + 1}
+						type="button"
+						onClick={() => {
+							this.selectPage(index + 1);
+						}}
+					>
+						<span slot="icon-only">{index + 1}</span>
+					</IonButton>
+				))}
 				<IonButton
 					shape="round"
 					fill="clear"
 					type="button"
+					size="small"
 					onClick={this.nextPage}
 					disabled={this.props.currentPage === this.props.totalPages}
+					className={`${styles.button} ${
+						this.props.currentPage === this.props.totalPages
+							? styles.active
+							: ""
+					}`}
 				>
 					<IonIcon slot="icon-only" icon={arrowForward} />
 				</IonButton>
