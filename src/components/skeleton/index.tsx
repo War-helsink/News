@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./styles.module.scss";
 
 interface SkeletonProps {
-	count?: number;
-	type?: "item" | "banner";
+	count: number;
+	type: "item" | "banner";
 }
 
 class Skeleton extends React.Component<SkeletonProps> {

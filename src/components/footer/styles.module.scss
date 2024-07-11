@@ -1,13 +1,9 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
 
-    width: 100%;
-
-    padding: 12px 24px;
-    background-color: white;
-    border-top: solid 1px #f2f4f5;
+    --padding-end: 24px;
+    --padding-start: 24px;
 }
 
 .title {

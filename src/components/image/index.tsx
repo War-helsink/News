@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
+import { IonImg } from "@ionic/react";
+
 interface ImageProps {
 	image?: string;
 }
@@ -10,7 +12,7 @@ class Image extends React.Component<ImageProps> {
 		return (
 			<div className={styles.wrapper}>
 				{this.props.image && (
-					<img src={this.props.image} alt="news" className={styles.image} />
+					<IonImg src={this.props.image} alt="news" className={styles.image} />
 				)}
 			</div>
 		);
