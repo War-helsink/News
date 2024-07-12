@@ -9,8 +9,8 @@ class Header extends React.Component {
 		return (
 			<IonHeader>
 				<IonToolbar className={styles.header}>
-					<h1 className={styles.title}>New Reactify</h1>
-					<p className={styles.date}>{formatDate(new Date())}</p>
+					<h1 className="text-3xl font-bold">New Reactify</h1>
+					<p className="text-base font-medium">{formatDate(new Date())}</p>
 				</IonToolbar>
 			</IonHeader>
 		);
