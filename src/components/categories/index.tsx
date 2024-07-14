@@ -8,10 +8,12 @@ interface CategoriesProps {
 	setCategory: (category: string) => void;
 }
 
-class Categories extends React.Component<CategoriesProps> {
+class Categories extends React.Component<
+	CategoriesProps & { forwardedRef: React.RefObject<HTMLDivElement> }
+> {
 	render() {
 		return (
-			<div className={styles.categories}>
+			<div ref={this.props.forwardedRef} className={styles.categories}>
 				<IonChip
 					className={`${styles.item} ${
 						this.props.currentCategory === "all" ? styles.active : ""
@@ -36,4 +38,13 @@ class Categories extends React.Component<CategoriesProps> {
 	}
 }
 
-export default Categories;
+const ForwardedCategories = React.forwardRef<HTMLDivElement, CategoriesProps>(
+	(props, ref) => (
+		<Categories
+			{...props}
+			forwardedRef={ref as React.RefObject<HTMLDivElement>}
+		/>
+	),
+);
+
+export default ForwardedCategories;

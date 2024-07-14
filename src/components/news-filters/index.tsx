@@ -5,6 +5,7 @@ import { getCategory } from "api/apiNews";
 
 import Categories from "components/categories";
 import Search from "components/search";
+import Slider from "components/slider";
 
 interface NewsByFiltersProps {
 	category: string;
@@ -52,11 +53,14 @@ class NewsFilters extends React.Component<
 
 		return (
 			<div className={styles.filters}>
-				<Categories
-					categories={categories}
-					currentCategory={category}
-					setCategory={this.setCategory}
-				/>
+				<Slider>
+					<Categories
+						categories={categories}
+						currentCategory={category}
+						setCategory={this.setCategory}
+					/>
+				</Slider>
+
 				<Search keywords={keywords} setKeywords={this.setKeywords} />
 			</div>
 		);

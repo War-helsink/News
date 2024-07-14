@@ -1,0 +1,11 @@
+.slider {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  --color: #fff;
+  --background: linear-gradient(to right, #ff30ac, #c882ff);
+}
