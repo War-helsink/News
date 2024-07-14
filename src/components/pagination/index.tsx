@@ -5,7 +5,7 @@ import { IonButton, IonIcon } from "@ionic/react";
 import { arrowBack, arrowForward } from "ionicons/icons";
 
 export interface PaginationProps {
-	onChangePage: (pageNumber: number) => void;
+	changeFilter: (key: string, value: unknown) => void;
 	totalPages: number;
 	currentPage: number;
 }
@@ -17,18 +17,18 @@ class Pagination extends React.Component<PaginationProps> {
 
 	nextPage = () => {
 		if (this.props.currentPage < this.props.totalPages) {
-			this.props.onChangePage(this.props.currentPage + 1);
+			this.props.changeFilter("pageNumber", this.props.currentPage + 1);
 		}
 	};
 
 	prevPage = () => {
 		if (this.props.currentPage > 1) {
-			this.props.onChangePage(this.props.currentPage - 1);
+			this.props.changeFilter("pageNumber", this.props.currentPage - 1);
 		}
 	};
 
 	selectPage(currentPage: number) {
-		this.props.onChangePage(currentPage);
+		this.props.changeFilter("pageNumber", currentPage);
 	}
 
 	render() {

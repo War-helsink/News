@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
+import type { SkeletonType, DirectionType } from "core/interface";
+
 export interface SkeletonProps {
 	count: number;
-	type: "item" | "banner";
-	direction: "column" | "row";
+	type: SkeletonType;
+	direction: DirectionType;
 }
 
 class Skeleton extends React.Component<SkeletonProps> {

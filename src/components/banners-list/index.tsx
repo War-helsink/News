@@ -2,10 +2,10 @@ import type { FC } from "react";
 import withSkeleton from "hocs/withSkeleton";
 import NewsBanner from "components/news-banner";
 import styles from "./styles.module.scss";
-import type { NewItem } from "core/interface";
+import type { INews } from "core/interface";
 
 interface BannersListProps {
-	banners: NewItem[] | null;
+	banners: INews[] | null;
 }
 
 const BannersList: FC<BannersListProps> = ({ banners }) => {

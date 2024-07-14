@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { NewItem } from "core/interface";
+import type { INews } from "core/interface";
 
 import NewsItem from "components/news-item";
 
 import withSkeleton from "hocs/withSkeleton";
 
 interface NewsListProps {
-	news: NewItem[];
+	news: INews[];
 }
 
 class NewsList extends React.Component<NewsListProps> {

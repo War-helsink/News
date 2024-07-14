@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-import type { NewItem } from "core/interface";
+import type { INews, IFilters } from "core/interface";
 
 import NewsList from "components/news-list";
 import PaginationWrapper from "components/pagination-wrapper";
@@ -12,14 +12,9 @@ import { TOTAL_PAGES, PAGE_SIZE } from "config";
 import { getNews } from "api/apiNews";
 
 interface NewsByFiltersState {
-	filters: {
-		pageNumber: number;
-		pageSize: number;
-		category: string;
-		keywords: string;
-	};
+	filters: IFilters;
 	isLoading: boolean;
-	news: NewItem[];
+	news: INews[];
 }
 
 class NewsByFilters extends React.Component<unknown, NewsByFiltersState> {
@@ -68,10 +63,6 @@ class NewsByFilters extends React.Component<unknown, NewsByFiltersState> {
 		}));
 	};
 
-	setPageNumber = (pageNumber: number) => {
-		this.changeFilter("pageNumber", pageNumber);
-	};
-
 	render() {
 		const { news, isLoading, filters } = this.state;
 		return (
@@ -85,7 +76,7 @@ class NewsByFilters extends React.Component<unknown, NewsByFiltersState> {
 				<PaginationWrapper
 					top
 					bottom
-					onChangePage={this.setPageNumber}
+					changeFilter={this.changeFilter}
 					totalPages={TOTAL_PAGES}
 					currentPage={filters.pageNumber}
 				>

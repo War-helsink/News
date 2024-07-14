@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { NewItem } from "core/interface";
+import type { INews } from "core/interface";
 import { formatTimeAgo } from "helpers";
 import { IonImg } from "@ionic/react";
 
 
 interface NewsItemProps {
-	item: NewItem;
+	item: INews;
 }
 
 class NewsItem extends React.Component<NewsItemProps> {

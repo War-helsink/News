@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import type { CategoriesType } from "core/interface";
 
 import { getCategory } from "api/apiNews";
 
@@ -8,14 +9,14 @@ import Search from "components/search";
 import Slider from "components/slider";
 
 interface NewsByFiltersProps {
-	category: string;
+	category: CategoriesType;
 	keywords: string;
 
 	changeFilter: (key: string, value: unknown) => void;
 }
 
 interface NewsFiltersState {
-	categories: string[];
+	categories: CategoriesType[];
 }
 
 class NewsFilters extends React.Component<
@@ -39,7 +40,7 @@ class NewsFilters extends React.Component<
 		}
 	};
 
-	setCategory = (category: string) => {
+	setCategory = (category: CategoriesType) => {
 		this.props.changeFilter("category", category);
 	};
 

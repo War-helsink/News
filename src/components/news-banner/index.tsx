@@ -1,11 +1,11 @@
 import React from "react";
-import { formatTimeAgo } from "../../helpers";
+import { formatTimeAgo } from "helpers";
 import Image from "components/image";
 import styles from "./styles.module.scss";
-import type { NewItem } from "core/interface";
+import type { INews } from "core/interface";
 
 interface NewsBannerProps {
-	item?: NewItem;
+	item?: INews;
 }
 
 class NewsBanner extends React.Component<NewsBannerProps> {

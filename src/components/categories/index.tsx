@@ -1,11 +1,13 @@
 import React from "react";
 import { IonChip } from "@ionic/react";
+import type { CategoriesType } from "core/interface";
+
 import styles from "./styles.module.scss";
 
 interface CategoriesProps {
-	currentCategory: string;
-	categories: string[];
-	setCategory: (category: string) => void;
+	currentCategory: CategoriesType;
+	categories: CategoriesType[];
+	setCategory: (category: CategoriesType) => void;
 }
 
 class Categories extends React.Component<
