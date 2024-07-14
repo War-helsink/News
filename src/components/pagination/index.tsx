@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 import { IonButton, IonIcon } from "@ionic/react";
 import { arrowBack, arrowForward } from "ionicons/icons";
 
-interface PaginationProps {
-	onChangePage: (currentPage: number) => void;
+export interface PaginationProps {
+	onChangePage: (pageNumber: number) => void;
 	totalPages: number;
 	currentPage: number;
 }

@@ -4,6 +4,8 @@ import type { NewItem } from "core/interface";
 
 import NewsItem from "components/news-item";
 
+import withSkeleton from "hocs/withSkeleton";
+
 interface NewsListProps {
 	news: NewItem[];
 }
@@ -20,4 +22,6 @@ class NewsList extends React.Component<NewsListProps> {
 	}
 }
 
-export default NewsList;
+const NewsListWithSkeleton = withSkeleton(NewsList, "item", 10);
+
+export default NewsListWithSkeleton;
