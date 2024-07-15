@@ -1,4 +1,4 @@
-.pagination{
+.pagination {
     display: flex;
     width: 100%;
     align-items: center;
@@ -12,11 +12,9 @@
     --border-width: 1px;
 }
 
-.active{
+.active {
     --color: #fff;
 
-    --border-color: linear-gradient(to right, #FF30AC, #C882FF);
-    --background: linear-gradient(to right, #FF30AC, #C882FF);
-
-    cursor: pointer;
+    --border-color: #ff30ac;
+    --background: #ff30ac;
 }

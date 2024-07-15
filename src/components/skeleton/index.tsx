@@ -3,6 +3,8 @@ import styles from "./styles.module.scss";
 
 import type { SkeletonType, DirectionType } from "core/interface";
 
+import { IonSkeletonText } from "@ionic/react";
+
 export interface SkeletonProps {
 	count: number;
 	type: SkeletonType;
@@ -20,7 +22,7 @@ class Skeleton extends React.Component<SkeletonProps> {
 		return (
 			<>
 				{this.props.count > 1 ? (
-					<ul
+					<div
 						className={
 							this.props.direction === "column"
 								? styles.columnList
@@ -28,16 +30,18 @@ class Skeleton extends React.Component<SkeletonProps> {
 						}
 					>
 						{[...Array(this.props.count)].map((_, index) => (
-							<li
+							<IonSkeletonText
+								animated
 								key={`key-li-${index}`}
 								className={
 									this.props.type === "banner" ? styles.banner : styles.item
 								}
 							/>
 						))}
-					</ul>
+					</div>
 				) : (
-					<li
+					<IonSkeletonText
+						animated
 						className={
 							this.props.type === "banner" ? styles.banner : styles.item
 						}
