@@ -5,7 +5,7 @@ import { IonButton, IonIcon } from "@ionic/react";
 import { arrowBack, arrowForward } from "ionicons/icons";
 
 export interface PaginationProps {
-	changeFilter: (key: string, value: unknown) => void;
+	changeFilter: (key: string, value: string | number | null) => void;
 	totalPages: number;
 	currentPage: number;
 }

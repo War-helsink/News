@@ -1,70 +1,35 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-import type { INews, IFilters } from "core/interface";
+import type { INews, IFilters } from "core/interfaces";
 
 import NewsList from "components/news-list";
 import PaginationWrapper from "components/pagination-wrapper";
 
 import NewsFilters from "components/news-filters";
+import { setFilters } from "store/slices/newsSlice";
+import { useGetNewsQuery } from "store/services/newsApi";
+import type { RootState, AppDispatch } from "store";
+import { useAppSelector } from "../../store";
 
-import { TOTAL_PAGES, PAGE_SIZE } from "config";
-import { getNews } from "api/apiNews";
+import { TOTAL_PAGES } from "config";
+import { connect } from "react-redux";
 
-interface NewsByFiltersState {
+interface NewsByFiltersProps {
 	filters: IFilters;
 	isLoading: boolean;
 	news: INews[];
+
+	setFilters: (payload: { key: string; value: string | number | null }) => void;
 }
 
-class NewsByFilters extends React.Component<unknown, NewsByFiltersState> {
-	state: NewsByFiltersState = {
-		filters: {
-			pageNumber: 1,
-			pageSize: PAGE_SIZE,
-			category: "all",
-			keywords: "",
-		},
-		isLoading: true,
-		news: [],
-	};
-
-	componentDidMount() {
-		this.fetchNews();
-	}
-
-	componentDidUpdate(_: unknown, prevState: NewsByFiltersState) {
-		if (
-			prevState.filters.pageNumber !== this.state.filters.pageNumber ||
-			prevState.filters.category !== this.state.filters.category ||
-			prevState.filters.keywords !== this.state.filters.keywords
-		) {
-			this.fetchNews();
-		}
-	}
-
-	fetchNews = async () => {
-		try {
-			const { filters } = this.state;
-			this.setState({ isLoading: true });
-			const data = await getNews(filters);
-			this.setState({ news: data.news, isLoading: false });
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
-	changeFilter = (key: string, value: unknown) => {
-		this.setState((prevState) => ({
-			filters: {
-				...prevState.filters,
-				[key]: value,
-			},
-		}));
+class NewsByFilters extends React.Component<NewsByFiltersProps> {
+	changeFilter = (key: string, value: string | number | null) => {
+		this.props.setFilters({ key, value });
 	};
 
 	render() {
-		const { news, isLoading, filters } = this.state;
+		const { news, filters, isLoading } = this.props;
 		return (
 			<section className={styles.section}>
 				<NewsFilters
@@ -87,4 +52,27 @@ class NewsByFilters extends React.Component<unknown, NewsByFiltersState> {
 	}
 }
 
-export default NewsByFilters;
+const mapStateToProps = (state: RootState) => ({
+	filters: state.news.filters,
+	news: state.news.news,
+});
+
+const mapDispatchToProps = (dispatch: AppDispatch) => ({
+	setFilters: (payload: { key: string; value: string | number | null }) =>
+		dispatch(setFilters(payload)),
+});
+
+const ConnectedNewsByFilters = connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(NewsByFilters);
+
+const NewsByFiltersContainer = () => {
+	const filters = useAppSelector((state) => state.news.filters);
+
+	const { isLoading } = useGetNewsQuery({ ...filters });
+
+	return <ConnectedNewsByFilters isLoading={isLoading} />;
+};
+
+export default NewsByFiltersContainer;

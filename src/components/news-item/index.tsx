@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { INews } from "core/interface";
+import type { INews } from "core/interfaces";
 import { formatTimeAgo } from "helpers";
 import { IonImg } from "@ionic/react";
 

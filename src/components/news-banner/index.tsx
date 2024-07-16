@@ -2,7 +2,7 @@ import React from "react";
 import { formatTimeAgo } from "helpers";
 import Image from "components/image";
 import styles from "./styles.module.scss";
-import type { INews } from "core/interface";
+import type { INews } from "core/interfaces";
 
 interface NewsBannerProps {
 	item?: INews;

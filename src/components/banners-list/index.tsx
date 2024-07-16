@@ -2,7 +2,7 @@ import type { FC } from "react";
 import withSkeleton from "hocs/withSkeleton";
 import NewsBanner from "components/news-banner";
 import styles from "./styles.module.scss";
-import type { INews } from "core/interface";
+import type { INews } from "core/interfaces";
 
 interface BannersListProps {
 	banners: INews[] | null;

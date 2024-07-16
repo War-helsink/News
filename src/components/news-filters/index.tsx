@@ -1,45 +1,25 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import type { CategoriesType } from "core/interface";
-
-import { getCategory } from "api/apiNews";
+import type { CategoriesType } from "core/interfaces";
 
 import Categories from "components/categories";
 import Search from "components/search";
 import Slider from "components/slider";
 
+import { useGetCategoriesQuery } from "store/services/newsApi";
+
 interface NewsByFiltersProps {
 	category: CategoriesType;
 	keywords: string;
 
-	changeFilter: (key: string, value: unknown) => void;
+	changeFilter: (key: string, value: string | number | null) => void;
 }
 
-interface NewsFiltersState {
+interface NewsFiltersCategoryProps extends NewsByFiltersProps {
 	categories: CategoriesType[];
 }
 
-class NewsFilters extends React.Component<
-	NewsByFiltersProps,
-	NewsFiltersState
-> {
-	state: NewsFiltersState = {
-		categories: [],
-	};
-
-	componentDidMount() {
-		this.fetchCategories();
-	}
-
-	fetchCategories = async () => {
-		try {
-			const data = await getCategory();
-			this.setState({ categories: data.categories });
-		} catch (error) {
-			console.error(error);
-		}
-	};
-
+class NewsFiltersCategory extends React.Component<NewsFiltersCategoryProps> {
 	setCategory = (category: CategoriesType) => {
 		this.props.changeFilter("category", category);
 	};
@@ -49,8 +29,7 @@ class NewsFilters extends React.Component<
 	};
 
 	render() {
-		const { category, keywords } = this.props;
-		const { categories } = this.state;
+		const { category, keywords, categories } = this.props;
 
 		return (
 			<div className={styles.filters}>
@@ -67,5 +46,13 @@ class NewsFilters extends React.Component<
 		);
 	}
 }
+
+const NewsFilters: React.FC<NewsByFiltersProps> = (props) => {
+	const { data } = useGetCategoriesQuery(null);
+
+	return (
+		<NewsFiltersCategory categories={data ? data.categories : []} {...props} />
+	);
+};
 
 export default NewsFilters;

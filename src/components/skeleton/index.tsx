@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-import type { SkeletonType, DirectionType } from "core/interface";
+import type { SkeletonType, DirectionType } from "core/interfaces";
 
 import { IonSkeletonText } from "@ionic/react";
 
@@ -29,15 +29,25 @@ class Skeleton extends React.Component<SkeletonProps> {
 								: styles.rowList
 						}
 					>
-						{[...Array(this.props.count)].map((_, index) => (
-							<IonSkeletonText
-								animated
-								key={`key-li-${index}`}
-								className={
-									this.props.type === "banner" ? styles.banner : styles.item
-								}
-							/>
-						))}
+						{this.props.type === "banner" &&
+							[...Array(this.props.count)].map((_, index) => (
+								<IonSkeletonText
+									animated
+									key={`key-li-${index}`}
+									className={styles.banner}
+								/>
+							))}
+
+						{this.props.type === "item" &&
+							[...Array(this.props.count)].map((_, index) => (
+								<div key={`key-li-${index}`} className={styles.item}>
+									<IonSkeletonText animated className="w-16 h-16" />
+									<div className="flex flex-col gap-2 w-9/12">
+										<IonSkeletonText animated className="h-6" />
+										<IonSkeletonText animated className="h-5 w-9/12" />
+									</div>
+								</div>
+							))}
 					</div>
 				) : (
 					<IonSkeletonText

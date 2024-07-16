@@ -1,6 +1,6 @@
 import React from "react";
 import { IonChip } from "@ionic/react";
-import type { CategoriesType } from "core/interface";
+import type { CategoriesType } from "core/interfaces";
 
 import styles from "./styles.module.scss";
 
