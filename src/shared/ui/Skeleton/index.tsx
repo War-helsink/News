@@ -21,42 +21,35 @@ class Skeleton extends React.Component<SkeletonProps> {
 	render() {
 		return (
 			<>
-				{this.props.count > 1 ? (
-					<div
-						className={
-							this.props.direction === "column"
-								? styles.columnList
-								: styles.rowList
-						}
-					>
-						{this.props.type === "banner" &&
-							[...Array(this.props.count)].map((_, index) => (
-								<IonSkeletonText
-									animated
-									key={`key-li-${index}`}
-									className={styles.banner}
-								/>
-							))}
+				<div className={styles[`${this.props.direction}List`]}>
+					{this.props.type === "banner" &&
+						[...Array(this.props.count)].map((_, index) => (
+							<IonSkeletonText
+								animated
+								key={`key-li-${index}`}
+								className={styles.banner}
+							/>
+						))}
 
-						{this.props.type === "item" &&
-							[...Array(this.props.count)].map((_, index) => (
-								<div key={`key-li-${index}`} className={styles.item}>
-									<IonSkeletonText animated className="w-16 h-16" />
-									<div className="flex flex-col gap-2 w-9/12">
-										<IonSkeletonText animated className="h-6" />
-										<IonSkeletonText animated className="h-5 w-9/12" />
-									</div>
+					{this.props.type === "item" &&
+						[...Array(this.props.count)].map((_, index) => (
+							<div key={`key-li-${index}`} className={styles.item}>
+								<IonSkeletonText animated className="w-16 h-16" />
+								<div className="flex flex-col gap-2 w-9/12">
+									<IonSkeletonText animated className="h-6" />
+									<IonSkeletonText animated className="h-5 w-9/12" />
 								</div>
-							))}
-					</div>
-				) : (
-					<IonSkeletonText
-						animated
-						className={
-							this.props.type === "banner" ? styles.banner : styles.item
-						}
-					/>
-				)}
+							</div>
+						))}
+					{this.props.type === "chip" &&
+						[...Array(this.props.count)].map((_, index) => (
+							<IonSkeletonText
+								key={`key-li-${index}`}
+								className="min-w-20 max-w-20 h-9 rounded-2xl"
+								animated
+							/>
+						))}
+				</div>
 			</>
 		);
 	}

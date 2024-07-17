@@ -4,10 +4,7 @@ import styles from "./styles.module.scss";
 import { IonButton, IonIcon } from "@ionic/react";
 import { arrowBack, arrowForward } from "ionicons/icons";
 
-interface SliderProps {
-	children: React.ReactElement;
-	step: number;
-}
+import type { SliderProps } from "../../model/props";
 
 class Slider extends React.Component<SliderProps> {
 	static defaultProps = {

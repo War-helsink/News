@@ -3,7 +3,7 @@ import { NewsItem } from "entities/news";
 
 import withSkeleton from "shared/hocs/withSkeleton";
 
-import type { NewsListProps } from "../../model/NewsListProps";
+import type { NewsListProps } from "../../model/props";
 import styles from "./styles.module.scss";
 
 class NewsList extends React.Component<NewsListProps> {

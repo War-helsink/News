@@ -1,5 +1,4 @@
 import React from "react";
-import type { IFilters } from "shared/interfaces";
 
 import type { CategoriesType } from "entities/category";
 import { Categories } from "features/categories";
@@ -10,14 +9,8 @@ import { Slider } from "features/slider";
 import { useGetCategoriesQuery } from "entities/category";
 import { useAppSelector, useAppDispatch } from "app/appStore";
 
+import type { NewsFiltersCategoryProps } from "../../model/props";
 import styles from "./styles.module.scss";
-
-interface NewsFiltersCategoryProps {
-	categories: CategoriesType[];
-	filters: IFilters;
-
-	changeFilter: (key: string, value: string | number | null) => void;
-}
 
 class NewsFiltersCategory extends React.Component<NewsFiltersCategoryProps> {
 	setCategory = (category: CategoriesType) => {
@@ -29,12 +22,13 @@ class NewsFiltersCategory extends React.Component<NewsFiltersCategoryProps> {
 	};
 
 	render() {
-		const { filters, categories } = this.props;
+		const { filters, categories, isLoading } = this.props;
 
 		return (
 			<div className={styles.filters}>
 				<Slider>
 					<Categories
+						isLoading={isLoading}
 						categories={categories}
 						currentCategory={filters.category}
 						setCategory={this.setCategory}
@@ -49,13 +43,14 @@ class NewsFiltersCategory extends React.Component<NewsFiltersCategoryProps> {
 
 const NewsFilters: React.FC = () => {
 	const filters = useAppSelector((state) => state.news.filters);
-	const { data } = useGetCategoriesQuery(null);
+	const { data, isLoading } = useGetCategoriesQuery(null);
 	const dispatch = useAppDispatch();
 
 	return (
 		<NewsFiltersCategory
 			categories={data ? data.categories : []}
 			filters={filters}
+			isLoading={isLoading}
 			changeFilter={(key, value) => {
 				dispatch(setFilters({ key, value }));
 			}}

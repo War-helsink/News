@@ -1,7 +1,7 @@
 import type { CategoriesType } from "entities/category";
 
-export type SkeletonType = "banner" | "item";
-export type DirectionType = "row" | "column";
+export type SkeletonType = "banner" | "item" | "chip";
+export type DirectionType = "fullRow" | "row" | "column";
 
 export interface IFilters {
 	pageNumber: number;

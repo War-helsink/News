@@ -1,17 +1,13 @@
 import React from "react";
 import { IonChip } from "@ionic/react";
-import type { CategoriesType } from "entities/category";
 
+import type { CategoriesProps } from "../../model/props";
 import styles from "./styles.module.scss";
 
-interface CategoriesProps {
-	currentCategory: CategoriesType;
-	categories: CategoriesType[];
-	setCategory: (category: CategoriesType) => void;
-}
+import withSkeleton from "shared/hocs/withSkeleton";
 
 class Categories extends React.Component<
-	CategoriesProps & { forwardedRef: React.RefObject<HTMLDivElement> }
+	CategoriesProps & { forwardedRef: React.ForwardedRef<HTMLDivElement> }
 > {
 	render() {
 		return (
@@ -40,13 +36,10 @@ class Categories extends React.Component<
 	}
 }
 
+const CategoriesWithSkeleton = withSkeleton(Categories, "chip", 10, "fullRow");
+
 const ForwardedCategories = React.forwardRef<HTMLDivElement, CategoriesProps>(
-	(props, ref) => (
-		<Categories
-			{...props}
-			forwardedRef={ref as React.RefObject<HTMLDivElement>}
-		/>
-	),
+	(props, ref) => <CategoriesWithSkeleton {...props} forwardedRef={ref} />,
 );
 
 export default ForwardedCategories;

@@ -2,12 +2,8 @@ import React from "react";
 import { formatTimeAgo } from "shared/helpers";
 import Image from "shared/ui/Image";
 
-import type { INews } from "../../";
 import styles from "./styles.module.scss";
-
-interface NewsBannerProps {
-	item?: INews;
-}
+import type { NewsBannerProps } from "../../model/props";
 
 class NewsBanner extends React.Component<NewsBannerProps> {
 	render() {

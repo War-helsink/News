@@ -3,7 +3,7 @@ import { NewsBanner } from "entities/news";
 
 import withSkeleton from "shared/hocs/withSkeleton";
 
-import type { BannersListProps } from "../../model/BannersListProps";
+import type { BannersListProps } from "../../model/props";
 import styles from "./styles.module.scss";
 
 const BannersList: FC<BannersListProps> = ({ banners }) => {
