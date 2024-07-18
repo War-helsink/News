@@ -1,5 +1,5 @@
 import React from "react";
-import { NewsItem } from "entities/news";
+import { NewsCard } from "entities/news";
 
 import withSkeleton from "shared/hocs/withSkeleton";
 
@@ -9,15 +9,15 @@ import styles from "./styles.module.scss";
 class NewsList extends React.Component<NewsListProps> {
 	render() {
 		return (
-			<ul className={styles.list}>
-				{this.props.news.map((item) => (
-					<NewsItem key={item.id} item={item} />
+			<ul className={styles[`${this.props.type}s`]}>
+				{this.props.news?.map((item) => (
+					<NewsCard key={item.id} type={this.props.type} item={item} />
 				))}
 			</ul>
 		);
 	}
 }
 
-const NewsListWithSkeleton = withSkeleton(NewsList, "item", 10);
+const NewsListWithSkeleton = withSkeleton(NewsList, 10);
 
 export default NewsListWithSkeleton;

@@ -18,6 +18,7 @@ export const newsApi = createApi({
 					pageSize = 10,
 					category,
 					keywords,
+					language,
 				} = params || {};
 				return {
 					url: "search",
@@ -27,6 +28,7 @@ export const newsApi = createApi({
 						page_size: pageSize,
 						category,
 						keywords,
+						language,
 					},
 				};
 			},

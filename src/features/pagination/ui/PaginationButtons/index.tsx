@@ -1,14 +1,10 @@
 import React from "react";
-import styles from "./styles.module.scss";
 
 import { IonButton, IonIcon } from "@ionic/react";
 import { arrowBack, arrowForward } from "ionicons/icons";
 
-export interface PaginationButtonsProps {
-	changeFilter: (key: string, value: string | number | null) => void;
-	totalPages: number;
-	currentPage: number;
-}
+import type { PaginationButtonsProps } from "../../model/props";
+import styles from "./styles.module.scss";
 
 class PaginationButtons extends React.Component<PaginationButtonsProps> {
 	static defaultProps = {
@@ -17,18 +13,18 @@ class PaginationButtons extends React.Component<PaginationButtonsProps> {
 
 	nextPage = () => {
 		if (this.props.currentPage < this.props.totalPages) {
-			this.props.changeFilter("pageNumber", this.props.currentPage + 1);
+			this.props.changePageNumber(this.props.currentPage + 1);
 		}
 	};
 
 	prevPage = () => {
 		if (this.props.currentPage > 1) {
-			this.props.changeFilter("pageNumber", this.props.currentPage - 1);
+			this.props.changePageNumber(this.props.currentPage - 1);
 		}
 	};
 
 	selectPage(currentPage: number) {
-		this.props.changeFilter("pageNumber", currentPage);
+		this.props.changePageNumber(currentPage);
 	}
 
 	render() {

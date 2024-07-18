@@ -1,11 +1,8 @@
 import type { FC } from "react";
-import PaginationButtons, { type PaginationButtonsProps } from "../PaginationButtons";
+import PaginationButtons from "../PaginationButtons";
 
-interface PaginationProps extends PaginationButtonsProps {
-	top: boolean;
-	bottom: boolean;
-	children: React.ReactElement;
-}
+import type { PaginationProps } from "../../model/props";
+
 
 const Pagination: FC<PaginationProps> = ({
 	top,

@@ -4,7 +4,7 @@ import { IonChip } from "@ionic/react";
 import type { CategoriesProps } from "../../model/props";
 import styles from "./styles.module.scss";
 
-import withSkeleton from "shared/hocs/withSkeleton";
+import withSkeleton, { type WithSkeletonProps } from "shared/hocs/withSkeleton";
 
 class Categories extends React.Component<
 	CategoriesProps & { forwardedRef: React.ForwardedRef<HTMLDivElement> }
@@ -36,10 +36,11 @@ class Categories extends React.Component<
 	}
 }
 
-const CategoriesWithSkeleton = withSkeleton(Categories, "chip", 10, "fullRow");
+const CategoriesWithSkeleton = withSkeleton(Categories, 10);
 
-const ForwardedCategories = React.forwardRef<HTMLDivElement, CategoriesProps>(
-	(props, ref) => <CategoriesWithSkeleton {...props} forwardedRef={ref} />,
-);
+const ForwardedCategories = React.forwardRef<
+	HTMLDivElement,
+	WithSkeletonProps & CategoriesProps
+>((props, ref) => <CategoriesWithSkeleton {...props} forwardedRef={ref} />);
 
 export default ForwardedCategories;

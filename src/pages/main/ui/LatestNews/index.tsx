@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { BannersList } from "widgets/news";
+import { NewsList } from "widgets/news";
 import { useGetLatestNewsQuery } from "entities/news";
 import styles from "./styles.module.scss";
 
@@ -8,7 +8,7 @@ const LatestNews: FC = () => {
 
 	return (
 		<section className={styles.section}>
-			<BannersList banners={data ? data.news : null} isLoading={isLoading} />
+			<NewsList type="banner" direction="row" news={data ? data.news : undefined} isLoading={isLoading} />
 		</section>
 	);
 };

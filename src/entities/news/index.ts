@@ -5,7 +5,6 @@ export { newsReducer, setNews, setFilters };
 
 export { newsApi, useGetNewsQuery, useGetLatestNewsQuery } from "./api/api";
 
-import NewsItem from "./ui/NewsItem";
-import NewsBanner from "./ui/NewsBanner";
+import NewsCard from "./ui/NewsCard";
 
-export { NewsItem, NewsBanner };
+export { NewsCard };

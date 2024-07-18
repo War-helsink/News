@@ -1,3 +1,11 @@
+.banner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 100%;
+}
+
 .item {
     display: flex;
 
@@ -13,16 +21,6 @@
     min-height: 64px;
 
     object-fit: cover;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.title {
-    font-size: 14px;
 }
 
 .extra {

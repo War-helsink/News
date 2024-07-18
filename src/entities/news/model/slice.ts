@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { IFilters } from "shared/interfaces";
 import { PAGE_SIZE } from "shared/config";
+
 import type { INews } from "./types";
 
 export interface State {
@@ -16,6 +17,7 @@ const initialState: State = {
 		pageSize: PAGE_SIZE,
 		category: "all",
 		keywords: "",
+		language: "en",
 	},
 };
 
