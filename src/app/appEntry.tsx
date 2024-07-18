@@ -3,16 +3,26 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 
 import { ThemeProvider } from "./providers/ThemeContext";
-import BaseLayouts from "./layouts/BaseLayouts";
 import { store } from "./appStore";
-import "./index.scss";
 
+import { RouterProvider } from "react-router-dom";
+import { appRouter } from "./appRouter";
+
+/* Core CSS required for Ionic components to work properly */
+import "@ionic/react/css/core.css";
+import "@ionic/react/css/palettes/dark.class.css";
+
+import { setupIonicReact } from "@ionic/react";
+
+setupIonicReact();
+
+import "./index.scss";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<ThemeProvider>
 			<Provider store={store}>
-				<BaseLayouts />
+				<RouterProvider router={appRouter} />
 			</Provider>
 		</ThemeProvider>
 	</React.StrictMode>,

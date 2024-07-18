@@ -8,9 +8,9 @@ import { categoriesApi } from "entities/category";
 import { rootReducer } from "./appReducer";
 
 export const store = configureStore({
-	reducer: rootReducer,
-	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(newsApi.middleware, categoriesApi.middleware),
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(newsApi.middleware, categoriesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,5 +1,4 @@
 import { Component } from "react";
-
 import LatestNews from "./LatestNews";
 import NewsByFilters from "./NewsByFilters";
 

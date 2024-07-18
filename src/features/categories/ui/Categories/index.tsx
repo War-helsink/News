@@ -12,14 +12,6 @@ class Categories extends React.Component<
 	render() {
 		return (
 			<div ref={this.props.forwardedRef} className={styles.categories}>
-				<IonChip
-					className={`${styles.item} ${
-						this.props.currentCategory === "all" ? styles.active : ""
-					}`}
-					onClick={() => this.props.setCategory("all")}
-				>
-					All
-				</IonChip>
 				{this.props.categories.map((category) => (
 					<IonChip
 						key={category}

@@ -12,31 +12,27 @@ class NewsCard extends React.Component<NewsCardProps> {
 	};
 
 	render() {
-		return (
-			<div className={styles[this.props.type]}>
-				{this.props.type === "banner" ? (
-					<Image image={this.props.item?.image} />
-				) : (
-					<IonImg
-						className={styles.img}
-						alt="news"
-						src={this.props.item.image}
-					/>
-				)}
+		const { type, item, viewNewsSlot } = this.props;
 
-				<div className="flex flex-col gap-2">
-					<h3
-						className={`${
-							this.props.type === "banner" ? "text-base" : "text-sm"
-						}`}
-					>
-						{this.props.item.title}
-					</h3>
-					<p className={styles.extra}>
-						{formatTimeAgo(this.props.item.published)} by{" "}
-						{this.props.item.author}
-					</p>
+		return (
+			<div className={`${styles[type]} justify-between`}>
+				<div className={styles[type]}>
+					{type === "banner" ? (
+						<Image image={item?.image} />
+					) : (
+						<IonImg className={styles.img} alt="news" src={item.image} />
+					)}
+
+					<div className="flex flex-col gap-2">
+						<h3 className={`${type === "banner" ? "text-base" : "text-sm"}`}>
+							{item.title}
+						</h3>
+						<p className={styles.extra}>
+							{formatTimeAgo(item.published)} by {item.author}
+						</p>
+					</div>
 				</div>
+				{viewNewsSlot ? viewNewsSlot(item) : null}
 			</div>
 		);
 	}

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type { INews } from "entities/news";
 import type { CategoriesType } from "entities/category";
 
@@ -17,4 +19,5 @@ export interface NewsListProps {
 	news?: INews[];
 	type?: NewsType;
 	direction?: DirectionType;
+	viewNewsSlot?: (news: INews) => ReactNode;
 }

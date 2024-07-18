@@ -8,10 +8,17 @@ import styles from "./styles.module.scss";
 
 class NewsList extends React.Component<NewsListProps> {
 	render() {
+		const { type, news, viewNewsSlot } = this.props;
+
 		return (
-			<ul className={styles[`${this.props.type}s`]}>
-				{this.props.news?.map((item) => (
-					<NewsCard key={item.id} type={this.props.type} item={item} />
+			<ul className={styles[`${type}s`]}>
+				{news?.map((item) => (
+					<NewsCard
+						key={item.id}
+						viewNewsSlot={viewNewsSlot}
+						type={type}
+						item={item}
+					/>
 				))}
 			</ul>
 		);

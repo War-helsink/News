@@ -4,6 +4,8 @@
     width: 100%;
     gap: 12px;
     box-sizing: border-box;
+
+    grid-auto-rows: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 @media (min-width: 768px) {
