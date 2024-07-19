@@ -4,7 +4,7 @@ import { setFilters } from "entities/news";
 export const usePaginationNews = () => {
 	const dispatch = useAppDispatch();
 
-	const changePageNumber = (value: string | number | null) => {
+	const changePageNumber = (value: number) => {
 		dispatch(setFilters({ key: "pageNumber", value }));
 	};
 

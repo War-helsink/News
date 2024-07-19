@@ -3,14 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 
 import { newsApi } from "entities/news";
+import { languagesApi } from "entities/language";
 import { categoriesApi } from "entities/category";
 
 import { rootReducer } from "./appReducer";
 
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(newsApi.middleware, categoriesApi.middleware),
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat(
+			newsApi.middleware,
+			categoriesApi.middleware,
+			languagesApi.middleware,
+		),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -5,7 +5,7 @@ export interface PaginationProps extends PaginationButtonsProps {
 }
 
 export interface PaginationButtonsProps {
-	changePageNumber: (value: string | number | null) => void;
+	changePageNumber: (value: number) => void;
 	totalPages: number;
 	currentPage: number;
 }

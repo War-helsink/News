@@ -1,11 +1,11 @@
 .footer {
-    --padding-top: 12px;
-    --padding-bottom: 12px;
-
-    --padding-end: 24px;
-    --padding-start: 24px;
+    padding-block-start: 5rem;
 }
 
-.title {
-    font-size: 28px;
+.toolbar {
+    --padding-top: 32px;
+    --padding-bottom: 32px;
+
+    --padding-end: 32px;
+    --padding-start: 32px;
 }

@@ -7,7 +7,7 @@ import {
 } from "@ionic/react";
 import { sunny, moon } from "ionicons/icons";
 
-class ThemeButton extends React.Component<unknown> {
+class ThemeButton extends React.Component {
 	static contextType = ThemeContext;
 
 	render() {

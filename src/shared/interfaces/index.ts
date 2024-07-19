@@ -1,4 +1,5 @@
 import type { CategoriesType } from "entities/category";
+import type { LanguageType } from "entities/language";
 
 export type NewsType = "banner" | "item";
 export type SkeletonType = "banner" | "item" | "chip";
@@ -9,7 +10,7 @@ export interface IFilters {
 	pageSize: number;
 	category: CategoriesType;
 	keywords: string;
-	language: string;
+	language: LanguageType;
 }
 
 export type ParamsType = Partial<IFilters>;
