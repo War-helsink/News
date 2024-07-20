@@ -1,13 +1,13 @@
 import type { FC } from "react";
-import { NewsList } from "widgets/news";
-
-import type { INews } from "entities/news";
-import { useGetLatestNewsQuery, setCurrentNews } from "entities/news";
-
-import { useAppDispatch } from "app/appStore";
 import { useNavigate } from "react-router-dom";
 
+import { useAppDispatch } from "app/appStore";
+
 import { IonButton } from "@ionic/react";
+import { NewsList } from "widgets/news";
+import type { INews } from "entities/news";
+import { useGetLatestNewsQuery, setCurrentNews } from "entities/news";
+import type { NewsType, DirectionType } from "shared/interfaces";
 
 import styles from "./styles.module.scss";
 
@@ -24,8 +24,8 @@ const LatestNews: FC = () => {
 	return (
 		<section className={styles.section}>
 			<NewsList
-				type="banner"
-				direction="row"
+				type={"banner" as NewsType}
+				direction={"row" as DirectionType}
 				news={data ? data.news : undefined}
 				isLoading={isLoading}
 				viewNewsSlot={(news: INews) => (

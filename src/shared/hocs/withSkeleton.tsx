@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
-import Skeleton, { type SkeletonProps } from "shared/ui/Skeleton";
+import Skeleton from "shared/ui/Skeleton";
+import type { SkeletonProps } from "shared/model/props";
 
 export interface WithSkeletonProps {
 	isLoading: boolean;
@@ -12,7 +13,12 @@ function withSkeleton<T extends object>(
 	count: SkeletonProps["count"],
 ) {
 	return function WithSkeleton(props: WithSkeletonProps & T) {
-		const { isLoading, type="item", direction = "column", ...restProps } = props;
+		const {
+			isLoading,
+			type = "item",
+			direction = "column",
+			...restProps
+		} = props;
 
 		if (isLoading) {
 			return <Skeleton type={type} count={count} direction={direction} />;
