@@ -10,7 +10,8 @@ import { categoriesApi } from "entities/category";
 import styles from "./styles.module.scss";
 import NewsListWithPagination from "../NewsListWithPagination";
 
-import type { NewsByFiltersProps, NewsByFiltersState } from "../../model/props";
+import type { NewsByFiltersProps } from "../../model/props";
+import type { NewsByFiltersState } from "../../model/state";
 
 class NewsByFilters extends React.Component<
 	NewsByFiltersProps,

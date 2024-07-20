@@ -1,6 +1,6 @@
 import { NewsList } from "widgets/news";
 import { Pagination } from "features/pagination";
-import { TOTAL_PAGES } from "shared/config";
+import { MAX_PAGES, MIN_PAGES } from "shared/config";
 import { usePaginationNews } from "../../utils/hooks/usePaginationNews";
 import type { NewsListWithPaginationProps } from "../../model/props";
 
@@ -16,7 +16,8 @@ const NewsListWithPagination = ({
 			top
 			bottom
 			changePageNumber={changePageNumber}
-			totalPages={TOTAL_PAGES}
+			maxPages={MAX_PAGES}
+			minPages={MIN_PAGES}
 			currentPage={filters.pageNumber}
 		>
 			<NewsList

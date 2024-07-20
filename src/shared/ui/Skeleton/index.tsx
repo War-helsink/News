@@ -1,15 +1,8 @@
 import React from "react";
-import styles from "./styles.module.scss";
-
-import type { SkeletonType, DirectionType } from "shared/interfaces";
-
 import { IonSkeletonText } from "@ionic/react";
 
-export interface SkeletonProps {
-	count: number;
-	type: SkeletonType;
-	direction: DirectionType;
-}
+import type { SkeletonProps } from "../../model/props";
+import styles from "./styles.module.scss";
 
 class Skeleton extends React.Component<SkeletonProps> {
 	static defaultProps = {

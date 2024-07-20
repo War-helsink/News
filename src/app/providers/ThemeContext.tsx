@@ -21,12 +21,18 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 	const [isDark, setIsDark] = useState(false);
 
 	const toggleTheme = () => {
+		localStorage.setItem("theme", JSON.stringify(!isDark));
 		setIsDark((prev) => !prev);
 	};
 
 	useEffect(() => {
-		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-		setIsDark(prefersDark.matches);
+		const theme = localStorage.getItem("theme");
+		if (theme) {
+			setIsDark(JSON.parse(theme) as boolean);
+		} else {
+			const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+			setIsDark(prefersDark.matches);
+		}
 	}, []);
 
 	useEffect(() => {

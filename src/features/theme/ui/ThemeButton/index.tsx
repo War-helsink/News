@@ -13,7 +13,7 @@ class ThemeButton extends React.Component {
 	render() {
 		const { isDark, toggleTheme } = this.context as IThemeContext;
 		return (
-			<IonButton color="primary" shape="round" onClick={toggleTheme}>
+			<IonButton color="medium" shape="round" onClick={toggleTheme}>
 				<IonIcon slot="icon-only" icon={isDark ? sunny : moon} />
 			</IonButton>
 		);

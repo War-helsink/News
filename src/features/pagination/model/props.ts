@@ -6,6 +6,7 @@ export interface PaginationProps extends PaginationButtonsProps {
 
 export interface PaginationButtonsProps {
 	changePageNumber: (value: number) => void;
-	totalPages: number;
+	maxPages: number;
+	minPages: number;
 	currentPage: number;
 }

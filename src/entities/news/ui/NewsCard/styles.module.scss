@@ -13,17 +13,20 @@
     gap: 12px;
 }
 
-.img {
-    width: 64px;
-    height: 64px;
-
-    min-width: 64px;
-    min-height: 64px;
-
-    object-fit: cover;
-}
-
 .extra {
     font-size: 12px;
     color: #6c7072;
+}
+
+.img-banner{
+    padding-top: 100%;
+
+}
+
+.img-item{
+    min-width: 64px;
+    min-height: 64px;
+
+    max-width: 64px;
+    max-height: 64px;
 }

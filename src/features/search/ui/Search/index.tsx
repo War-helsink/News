@@ -12,6 +12,7 @@ class Search extends React.Component<SearchProps> {
 		return (
 			<div className="flex w-hull gap-3.5">
 				<IonInput
+					mode="md"
 					className={styles.input}
 					clearInput
 					fill="outline"
