@@ -2,12 +2,10 @@ import { Component } from "react";
 import LatestNews from "./LatestNews";
 import NewsByFilters from "./NewsByFilters";
 
-import styles from "./styles.module.scss";
-
 class Main extends Component {
 	render() {
 		return (
-			<main className={styles.main}>
+			<main className="grid w-full gap-8 md:grid-cols-2 grid-cols-1">
 				<LatestNews />
 
 				<NewsByFilters />

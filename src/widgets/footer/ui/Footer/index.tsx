@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 class Footer extends React.Component {
 	render() {
 		return (
-			<IonFooter className={styles.footer}>
+			<IonFooter className="pt-20">
 				<IonToolbar className={styles.toolbar}>
 					<div className="w-full flex flex-col justify-center items-center">
 						<div className="text-2xl font-black">Watching news</div>

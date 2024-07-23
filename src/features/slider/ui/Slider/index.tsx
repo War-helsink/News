@@ -32,7 +32,7 @@ class Slider extends React.Component<SliderProps> {
 
 	render() {
 		return (
-			<div className={styles.slider}>
+			<div className="w-full flex items-center gap-2">
 				<IonButton
 					shape="round"
 					fill="clear"

@@ -1,21 +1,17 @@
-import { IonButton, IonChip } from "@ionic/react";
+import { IonButton } from "@ionic/react";
 
+import Chip from "shared/ui/Chip";
 import SmartImage from "shared/ui/Image";
 import { formatTimeAgo } from "shared/helpers/formatTimeAgo";
 
-import type { INews } from "../../model/types";
-import styles from "./styles.module.scss";
+import type { NewsDetailsProps } from "../../model/props";
 
-interface Props {
-	item: INews;
-}
-
-const NewsDetails = ({ item }: Props) => {
+const NewsDetails = ({ item }: NewsDetailsProps) => {
 	return (
-		<div className={styles.details}>
+		<div className="grid grid-cols-1 md:grid-cols-2">
 			<SmartImage className="pt-[100%]" src={item.image} />
 
-			<div className={styles.description}>
+			<div className="p-5 md:px-5 md:py-0">
 				<p>
 					{item.description} ({item.language})
 					<IonButton
@@ -28,17 +24,13 @@ const NewsDetails = ({ item }: Props) => {
 						Read more...
 					</IonButton>
 				</p>
-				<p className={styles.extra}>
+				<p className="text-xs text-medium-default mb-2">
 					{formatTimeAgo(item.published)} by {item.author}
 				</p>
 
 				<div className="flex flex-wrap">
 					{item.category.map((category) => {
-						return (
-							<IonChip key={category} className={styles.category}>
-								{category}
-							</IonChip>
-						);
+						return <Chip key={category} text={category} active />;
 					})}
 				</div>
 			</div>

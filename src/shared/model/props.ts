@@ -12,3 +12,10 @@ export interface SkeletonProps {
 	type: SkeletonType;
 	direction: DirectionType;
 }
+
+export interface ChipProps {
+	active?: boolean;
+	text?: string;
+
+	onClick?: () => void;
+}

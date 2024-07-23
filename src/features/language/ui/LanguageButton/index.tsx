@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import {
-	IonButtons,
 	IonButton,
 	IonSelect,
 	IonSelectOption,
@@ -52,12 +51,11 @@ class LanguageButton extends React.Component<
 				onIonChange={(ev) => {
 					this.setLanguage(ev.detail.value);
 				}}
+				hidden={false}
 			>
-				<IonButtons slot="label">
-					<IonButton color="medium" shape="round">
-						<IonIcon slot="icon-only" icon={language} />
-					</IonButton>
-				</IonButtons>
+				<IonButton slot="label" color="medium" shape="round">
+					<IonIcon slot="icon-only" icon={language} />
+				</IonButton>
 
 				{Object.entries(languages).map(([language, key]) => (
 					<IonSelectOption key={key} value={key}>

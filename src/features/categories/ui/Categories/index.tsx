@@ -1,27 +1,27 @@
 import React from "react";
-import { IonChip } from "@ionic/react";
+
+import Chip from "shared/ui/Chip";
+import withSkeleton, { type WithSkeletonProps } from "shared/hocs/withSkeleton";
 
 import type { CategoriesProps } from "../../model/props";
 import styles from "./styles.module.scss";
-
-import withSkeleton, { type WithSkeletonProps } from "shared/hocs/withSkeleton";
 
 class Categories extends React.Component<
 	CategoriesProps & { forwardedRef: React.ForwardedRef<HTMLDivElement> }
 > {
 	render() {
 		return (
-			<div ref={this.props.forwardedRef} className={styles.categories}>
+			<div
+				ref={this.props.forwardedRef}
+				className={`flex w-full gap-2 items-start box-border overflow-x-auto whitespace-nowrap ${styles["scrollbar-hidden"]}`}
+			>
 				{this.props.categories.map((category) => (
-					<IonChip
+					<Chip
 						key={category}
-						className={`${styles.item} ${
-							this.props.currentCategory === category ? styles.active : ""
-						}`}
+						text={category}
+						active={this.props.currentCategory === category}
 						onClick={() => this.props.setCategory(category)}
-					>
-						{category}
-					</IonChip>
+					/>
 				))}
 			</div>
 		);

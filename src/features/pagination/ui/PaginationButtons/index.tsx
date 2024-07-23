@@ -45,7 +45,7 @@ class PaginationButtons extends React.Component<PaginationButtonsProps> {
 		const pageNumbers = this.pageNumbers;
 
 		return (
-			<div className={styles.pagination}>
+			<div className="w-full flex justify-center items-center gap-1.5">
 				<IonButton
 					shape="round"
 					fill="clear"

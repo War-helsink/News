@@ -7,3 +7,7 @@ export interface NewsCardProps {
 	item: INews;
 	viewNewsSlot?: (news: INews) => ReactNode;
 }
+
+export interface NewsDetailsProps {
+	item: INews;
+}

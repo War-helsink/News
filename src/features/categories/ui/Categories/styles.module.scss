@@ -1,27 +1,8 @@
-.categories {
-    display: flex;
-    width: 100%;
-    gap: 8px;
-    align-items: flex-start;
-    box-sizing: border-box;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-}
-
-.item {
-    display: flex;
-    justify-content: center;
-    min-width: fit-content;
-    padding: 0.5rem;
-    margin: 0.25rem;
-}
-
-.active {
-    --color: #fff;
-    --background: linear-gradient(to right, #ff30ac, #c882ff);
-}
-
-::-webkit-scrollbar {
+.scrollbar-hidden::-webkit-scrollbar {
     display: none;
+}
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

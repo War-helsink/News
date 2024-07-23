@@ -30,9 +30,9 @@ class Header extends React.Component<unknown> {
 
 					<div className={styles.navbar} slot="end" />
 
-					<LanguageButton slot="end" />
-
 					<IonButtons slot="end">
+						<LanguageButton />
+
 						<ThemeButton />
 
 						<IonButton color="medium" shape="round" href={GITHUB_URL}>
