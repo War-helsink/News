@@ -28,3 +28,32 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+## Running the Project
+To get started with the project, follow these steps:
+
+- Install Dependencies:
+
+```js
+  npm install
+```
+
+
+Configure Environment Variables:
+- Create a .env file in the root directory with the following content:
+- VITE_NEWS_API_KEY=your_api_key_here
+- VITE_NEWS_BASE_API_URL=https://api.currentsapi.services/v1/
+
+
+Run the Project:
+- You can start the development server using one of the following commands:
+
+```js
+./bin/run.sh
+
+  or
+
+npm run dev
+```
+Don't forget to replace your_api_key_here with your actual API key. If you need any further assistance, feel free to ask!
