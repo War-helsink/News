@@ -1,3 +1,4 @@
+import type { FC } from "react";
 import { IonButtons, IonButton } from "@ionic/react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +15,7 @@ import { MAX_PAGES, MIN_PAGES } from "shared/config";
 import { usePaginationNews } from "../../utils/hooks/usePaginationNews";
 import type { NewsListWithPaginationProps } from "../../model/props";
 
-const NewsListWithPagination = ({
+const NewsListWithPagination: FC<NewsListWithPaginationProps> = ({
 	filters,
 	news,
 	isLoading,

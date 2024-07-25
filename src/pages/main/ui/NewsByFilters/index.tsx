@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import type { RootState } from "app/appStore";
 
-import NewsFilters from "widgets/news/ui/NewsFilters";
+import { NewsFilters } from "widgets/news";
 import { newsApi } from "entities/news";
 import { categoriesApi } from "entities/category";
 

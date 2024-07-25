@@ -1,12 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import {
-	IonButton,
-	IonSelect,
-	IonSelectOption,
-	IonIcon,
-} from "@ionic/react";
+import { IonButton, IonSelect, IonSelectOption, IonIcon } from "@ionic/react";
 import { language } from "ionicons/icons";
 
 import type { AppDispatch, RootState } from "app/appStore";
@@ -44,14 +39,13 @@ class LanguageButton extends React.Component<
 
 		return (
 			<IonSelect
-				className="w-12"
+				className="block w-12"
 				slot="end"
 				interface="popover"
 				value={this.props.language}
 				onIonChange={(ev) => {
 					this.setLanguage(ev.detail.value);
 				}}
-				hidden={false}
 			>
 				<IonButton slot="label" color="medium" shape="round">
 					<IonIcon slot="icon-only" icon={language} />

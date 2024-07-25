@@ -14,7 +14,7 @@ class NewsPage extends Component<NewsPageProps> {
 		const { currentNews } = this.props;
 		if (!currentNews) {
 			return (
-				<div className="flex flex-col justify-center items-center gap-4 h-[65vh] w-full">
+				<div className="flex flex-col justify-center items-center gap-4 w-full">
 					<h1>Cannot find news</h1>
 					<Link to={"/"}>
 						<IonButton>
@@ -25,7 +25,7 @@ class NewsPage extends Component<NewsPageProps> {
 			);
 		}
 		return (
-			<main className="flex flex-col gap-8 w-full min-h-[65vh]">
+			<main className="flex flex-col gap-8 w-full">
 				<h1>{currentNews.title}</h1>
 
 				<NewsDetails item={currentNews} />
