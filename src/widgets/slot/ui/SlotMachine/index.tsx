@@ -4,7 +4,6 @@ import { IonToolbar, IonButton } from "@ionic/react";
 import { SlotReel } from "features/slot";
 
 import { SLOT_COLUMN, SLOT_ROW, BASE_SIZE_SLOT } from "../../config";
-import styles from "./styles.module.scss";
 
 const SlotMachine: FC = () => {
 	const symbols = ["🍒", "🍋", "🍊", "🍉", "🍇"];
@@ -39,7 +38,6 @@ const SlotMachine: FC = () => {
 		<>
 			<IonToolbar className="mt-8 w-fit">
 				<div
-					className={styles.container}
 					style={{
 						width: BASE_SIZE_SLOT * SLOT_ROW,
 						height: BASE_SIZE_SLOT * SLOT_COLUMN,

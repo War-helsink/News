@@ -1,11 +1,13 @@
 import type { FC } from "react";
 
 import type { SlotSymbolProps } from "../../model/props";
-import styles from "./styles.module.scss";
 
-const SlotSymbol: FC<SlotSymbolProps> = ({ symbol }) => {
+const SlotSymbol: FC<SlotSymbolProps> = ({ symbol, sizeSlot }) => {
 	return (
-		<div className={styles.symbol}>
+		<div
+			className="flex justify-center items-center text-[4rem]"
+			style={{ height: sizeSlot, width: sizeSlot }}
+		>
 			{symbol}
 		</div>
 	);

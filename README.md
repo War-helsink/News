@@ -48,7 +48,7 @@ To get started with the project, follow these steps:
 Configure Environment Variables:
 - Create a .env file in the root directory with the following content:
 - VITE_NEWS_API_KEY=your_api_key_here
-- VITE_NEWS_BASE_API_URL=https://api.currentsapi.services/v1/
+- VITE_NEWS_BASE_API_URL=[api_url](https://api.currentsapi.services/v1/) 
 - Register on the [site](https://currentsapi.services/) and get your_api_key_here
 
 

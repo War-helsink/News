@@ -11,6 +11,7 @@ export interface SlotReelProps {
 
 export interface SlotSymbolProps {
 	symbol: string;
+	sizeSlot: number;
 
 	className?: string;
 }

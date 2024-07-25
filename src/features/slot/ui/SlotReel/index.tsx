@@ -6,7 +6,6 @@ import { useSymbolsReel } from "../../utils/hooks";
 import type { SlotReelProps } from "../../model/props";
 
 import SlotSymbol from "../SlotSymbol";
-import styles from "./styles.module.scss";
 
 const SlotReel: FC<SlotReelProps> = ({
 	positionIndex,
@@ -28,7 +27,7 @@ const SlotReel: FC<SlotReelProps> = ({
 	return (
 		<>
 			<motion.div
-				className={styles["reel-inner"]}
+				className="absolute top-0 flex flex-col"
 				style={{
 					width: sizeSlot,
 					left: positionIndex * sizeSlot,
@@ -39,7 +38,7 @@ const SlotReel: FC<SlotReelProps> = ({
 				transition={{ duration: 2, ease: "easeInOut" }}
 			>
 				{symbolsReel.map((symbolVal, i) => (
-					<SlotSymbol key={i} symbol={symbols[symbolVal]} />
+					<SlotSymbol key={i} sizeSlot={sizeSlot} symbol={symbols[symbolVal]} />
 				))}
 			</motion.div>
 		</>
