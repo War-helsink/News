@@ -2,7 +2,7 @@ import { IonButton } from "@ionic/react";
 
 import Chip from "shared/ui/Chip";
 import SmartImage from "shared/ui/Image";
-import { formatTimeAgo } from "shared/helpers/formatTimeAgo";
+import { formatTimeAgo } from "shared/helpers";
 
 import type { NewsDetailsProps } from "../../model/props";
 

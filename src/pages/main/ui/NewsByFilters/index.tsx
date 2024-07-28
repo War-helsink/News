@@ -7,7 +7,6 @@ import { NewsFilters } from "widgets/news";
 import { newsApi } from "entities/news";
 import { categoriesApi } from "entities/category";
 
-import styles from "./styles.module.scss";
 import NewsListWithPagination from "../NewsListWithPagination";
 
 import type { NewsByFiltersProps } from "../../model/props";
@@ -64,7 +63,7 @@ class NewsByFilters extends React.Component<
 		const { categories, isLoadingCategories, isLoading } = this.state;
 
 		return (
-			<section className={styles.section}>
+			<section className="w-full flex flex-col gap-8 truncate">
 				<NewsFilters
 					filters={filters}
 					categories={categories}

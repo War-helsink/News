@@ -9,8 +9,6 @@ import type { INews } from "entities/news";
 import { useGetLatestNewsQuery, setCurrentNews } from "entities/news";
 import type { NewsType, DirectionType } from "shared/interfaces";
 
-import styles from "./styles.module.scss";
-
 const LatestNews: FC = () => {
 	const { data, isLoading } = useGetLatestNewsQuery(null);
 	const dispatch = useAppDispatch();
@@ -22,7 +20,7 @@ const LatestNews: FC = () => {
 	};
 
 	return (
-		<section className={styles.section}>
+		<section className="flex flex-col w-full gap-8">
 			<NewsList
 				type={"banner" as NewsType}
 				direction={"row" as DirectionType}
