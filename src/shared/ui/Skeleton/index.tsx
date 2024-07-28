@@ -3,6 +3,8 @@ import { IonSkeletonText } from "@ionic/react";
 
 import type { SkeletonProps } from "../../model/props";
 
+import styles from "./styles.module.scss";
+
 class Skeleton extends React.Component<SkeletonProps> {
 	static defaultProps = {
 		count: 1,
@@ -13,15 +15,8 @@ class Skeleton extends React.Component<SkeletonProps> {
 	render() {
 		const { direction, type, count } = this.props;
 
-		const containerClasses = {
-			column: "flex flex-col gap-3", // gap-3 для 12px
-			row: "grid grid-cols-auto-fill gap-3", // gap-3 для 12px
-			fullRow:
-				"flex gap-2 items-start overflow-x-auto whitespace-nowrap scrollbar-hidden", // gap-2 для 8px
-		};
-
 		return (
-			<div className={containerClasses[direction]}>
+			<div className={styles[direction]}>
 				{type === "banner" &&
 					[...Array(count)].map((_, index) => (
 						<IonSkeletonText

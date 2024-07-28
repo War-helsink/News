@@ -55,6 +55,11 @@ const MenuWrapper: FC<MenuWrapperProps> = ({ children }) => {
 								<IonLabel>Fruit slots</IonLabel>
 							</IonItem>
 						</Link>
+						<Link to={"/tik-tok"}>
+							<IonItem button detail>
+								<IonLabel>TikTok</IonLabel>
+							</IonItem>
+						</Link>
 					</IonList>
 				</IonContent>
 				<Footer />

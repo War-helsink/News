@@ -3,7 +3,8 @@ import BaseLayout from "./layouts/BaseLayouts";
 import CasinoLoyuts from "./layouts/CasinoLoyuts";
 import ErrorElement from "./layouts/ErrorElement";
 
-import { Main } from "pages/main";
+import { MainPage } from "pages/main";
+import { TikTokPage } from "pages/tik-tok";
 import { NewsPage } from "pages/news";
 import { SlotPage } from "pages/slot";
 
@@ -12,7 +13,8 @@ export const appRouter = createBrowserRouter([
 		element: <BaseLayout />,
 		errorElement: <ErrorElement />,
 		children: [
-			{ path: "/", element: <Main /> },
+			{ path: "/", element: <MainPage /> },
+			{ path: "/tik-tok/", element: <TikTokPage /> },
 			{ path: "/news/:id", element: <NewsPage /> },
 		],
 	},
