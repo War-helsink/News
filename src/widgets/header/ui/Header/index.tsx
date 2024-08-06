@@ -45,6 +45,9 @@ class Header extends React.Component<unknown> {
 						<Link to={"/tik-tok"}>
 							<IonText>Tik Tok</IonText>
 						</Link>
+						<Link to={"/currency-converter"}>
+							<IonText>Currency converter</IonText>
+						</Link>
 					</IonButtons>
 
 					<div className={styles.navbar} slot="end" />

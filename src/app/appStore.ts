@@ -5,6 +5,7 @@ import type { TypedUseSelectorHook } from "react-redux";
 import { newsApi } from "entities/news";
 import { languagesApi } from "entities/language";
 import { categoriesApi } from "entities/category";
+import { exchangeRatesApi } from "entities/exchange-rates";
 
 import { rootReducer } from "./appReducer";
 
@@ -15,6 +16,7 @@ export const store = configureStore({
 			newsApi.middleware,
 			categoriesApi.middleware,
 			languagesApi.middleware,
+			exchangeRatesApi.middleware,
 		),
 });
 

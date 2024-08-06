@@ -2,11 +2,7 @@ import { Component } from "react";
 
 class TikTokPage extends Component {
 	render() {
-		return (
-			<main>
-				
-			</main>
-		);
+		return <main className="flex flex-col w-full h-full"></main>;
 	}
 }
 
