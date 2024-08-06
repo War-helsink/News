@@ -2,3 +2,12 @@
   --color: #fff;
   --background: linear-gradient(to right, #ff30ac, #c882ff);
 }
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import BaseLayout from "./layouts/BaseLayouts";
-import CasinoLoyuts from "./layouts/CasinoLoyuts";
-import ErrorElement from "./layouts/ErrorElement";
+import BaseLayouts from "./layouts/BaseLayouts";
+import CasinoLayouts from "./layouts/CasinoLayouts";
+import ErrorLayouts from "./layouts/ErrorLayouts";
 
 import { MainPage } from "pages/main";
 import { TikTokPage } from "pages/tik-tok";
@@ -10,8 +10,8 @@ import { SlotPage } from "pages/slot";
 
 export const appRouter = createBrowserRouter([
 	{
-		element: <BaseLayout />,
-		errorElement: <ErrorElement />,
+		element: <BaseLayouts />,
+		errorElement: <ErrorLayouts />,
 		children: [
 			{ path: "/", element: <MainPage /> },
 			{ path: "/tik-tok/", element: <TikTokPage /> },
@@ -19,8 +19,8 @@ export const appRouter = createBrowserRouter([
 		],
 	},
 	{
-		element: <CasinoLoyuts />,
-		errorElement: <ErrorElement />,
+		element: <CasinoLayouts />,
+		errorElement: <ErrorLayouts />,
 		children: [{ path: "/slot/", element: <SlotPage /> }],
 	},
 ]);

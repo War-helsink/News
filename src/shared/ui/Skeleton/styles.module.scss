@@ -19,11 +19,6 @@
 .fullRow {
     display: flex;
     align-items: flex-start;
-    overflow-x: auto;
-    white-space: nowrap;
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
+    
     gap: 0.5rem;
 }

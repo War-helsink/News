@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import MenuWrapper from "../providers/MenuWrapper";
 import { IonContent } from "@ionic/react";
 
-class BaseLayouts extends React.Component {
+class CasinoLayouts extends React.Component {
 	render() {
 		return (
 			<MenuWrapper>
@@ -18,4 +18,4 @@ class BaseLayouts extends React.Component {
 	}
 }
 
-export default BaseLayouts;
+export default CasinoLayouts;

@@ -43,7 +43,13 @@ class Slider extends React.Component<SliderProps> {
 				>
 					<IonIcon slot="icon-only" icon={arrowBack} />
 				</IonButton>
-				{React.cloneElement(this.props.children, { ref: this.sliderRef })}
+
+				<div
+					ref={this.sliderRef}
+					className={`flex w-full gap-2 items-start box-border overflow-x-auto whitespace-nowrap ${styles["scrollbar-hidden"]}`}
+				>
+					{this.props.children}
+				</div>
 
 				<IonButton
 					shape="round"

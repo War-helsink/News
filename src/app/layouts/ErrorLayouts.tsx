@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import MenuWrapper from "../providers/MenuWrapper";
 
-class ErrorElement extends React.Component {
+class ErrorLayouts extends React.Component {
 	render() {
 		return (
 			<MenuWrapper>
@@ -30,4 +30,4 @@ class ErrorElement extends React.Component {
 	}
 }
 
-export default ErrorElement;
+export default ErrorLayouts;

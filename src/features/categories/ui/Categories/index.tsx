@@ -4,7 +4,6 @@ import Chip from "shared/ui/Chip";
 import withSkeleton, { type WithSkeletonProps } from "shared/hocs/withSkeleton";
 
 import type { CategoriesProps } from "../../model/props";
-import styles from "./styles.module.scss";
 
 class Categories extends React.Component<
 	CategoriesProps & { forwardedRef: React.ForwardedRef<HTMLDivElement> }
@@ -13,7 +12,7 @@ class Categories extends React.Component<
 		return (
 			<div
 				ref={this.props.forwardedRef}
-				className={`flex w-full gap-2 items-start box-border overflow-x-auto whitespace-nowrap ${styles["scrollbar-hidden"]}`}
+				className="flex gap-2 items-start"
 			>
 				{this.props.categories.map((category) => (
 					<Chip
@@ -28,7 +27,7 @@ class Categories extends React.Component<
 	}
 }
 
-const CategoriesWithSkeleton = withSkeleton(Categories, 10);
+const CategoriesWithSkeleton = withSkeleton(Categories, 15);
 
 const ForwardedCategories = React.forwardRef<
 	HTMLDivElement,

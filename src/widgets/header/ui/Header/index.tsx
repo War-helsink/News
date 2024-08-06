@@ -35,16 +35,16 @@ class Header extends React.Component<unknown> {
 								</div>
 							</IonButton>
 						</Link>
-
-						<Link to={"/slot"}>
-							<IonButton color="dark" className="hidden md:block">
-								<IonText>
-									<h1 className="text-3xl font-bold">Fruit slots</h1>
-								</IonText>
-							</IonButton>
-						</Link>
-
 						<IonMenuButton color="dark" className="block md:hidden" />
+					</IonButtons>
+
+					<IonButtons className="hidden md:flex justify-center gap-3 uppercase text-base font-normal">
+						<Link to={"/slot"}>
+							<IonText>Fruit slots</IonText>
+						</Link>
+						<Link to={"/tik-tok"}>
+							<IonText>Tik Tok</IonText>
+						</Link>
 					</IonButtons>
 
 					<div className={styles.navbar} slot="end" />
