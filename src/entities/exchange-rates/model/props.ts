@@ -1,6 +1,6 @@
 import type { ExchangeRatesSimplified } from "entities/exchange-rates";
 
-export interface BlockProps {
+export interface ExchangeRatesBlockProps {
 	disabled?: boolean;
 
 	value?: number;

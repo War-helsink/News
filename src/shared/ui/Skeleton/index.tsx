@@ -28,11 +28,11 @@ class Skeleton extends React.Component<SkeletonProps> {
 
 				{type === "item" &&
 					[...Array(count)].map((_, index) => (
-						<div key={`key-li-${index}`} className="flex w-full h-20 gap-3">
-							<IonSkeletonText animated className="w-16 h-16" />
+						<div key={`key-li-${index}`} className="flex w-full gap-3">
+							<IonSkeletonText animated className="w-16 h-16 m-0" />
 							<div className="flex flex-col gap-2 w-9/12">
-								<IonSkeletonText animated className="h-6" />
-								<IonSkeletonText animated className="h-5 w-9/12" />
+								<IonSkeletonText animated className="h-6 m-0" />
+								<IonSkeletonText animated className="h-5 w-9/12 m-0" />
 							</div>
 						</div>
 					))}

@@ -25,10 +25,10 @@ class NewsCard extends React.Component<NewsCardProps> {
 					<SmartImage src={item?.image} className={imageClasses} />
 
 					<div className="flex flex-col gap-2">
-						<h3 className={`${type === "banner" ? "text-base" : "text-sm"}`}>
+						<h3 className={`${type === "banner" ? "text-base text-wrap" : "text-sm text-wrap"}`}>
 							{item.title}
 						</h3>
-						<p className="text-xs text-medium-default mb-2">
+						<p className="text-xs text-wrap text-medium-default mb-2">
 							{formatTimeAgo(item.published)} by {item.author}
 						</p>
 					</div>

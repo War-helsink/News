@@ -1,4 +1,4 @@
-import Block from "./ui/Block";
+import ExchangeRatesBlock from "./ui/Block";
 
 export type {
 	ExchangeRates,
@@ -8,4 +8,4 @@ export type {
 } from "./model/types";
 
 export { useGetExchangeRatesQuery, exchangeRatesApi } from "./api/api";
-export { Block };
+export { ExchangeRatesBlock };

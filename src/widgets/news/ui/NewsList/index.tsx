@@ -25,6 +25,6 @@ class NewsList extends React.Component<NewsListProps> {
 	}
 }
 
-const NewsListWithSkeleton = withSkeleton(NewsList, 12);
+const NewsListWithSkeleton = withSkeleton(NewsList, 10);
 
 export default NewsListWithSkeleton;

@@ -1,6 +1,9 @@
 import { type FC, useEffect, useState, useCallback, useMemo } from "react";
 
-import { Block ,useGetExchangeRatesQuery } from "entities/exchange-rates";
+import {
+	ExchangeRatesBlock,
+	useGetExchangeRatesQuery,
+} from "entities/exchange-rates";
 
 import { defaultCurrencies, baseValue } from "../config";
 
@@ -50,7 +53,7 @@ const CurrencyConverterPage: FC = () => {
 
 	return (
 		<main className="grid grid-cols-1 sm:grid-cols-2 gap-7 w-full sm:w-[800px] mx-auto my-[100px]">
-			<Block
+			<ExchangeRatesBlock
 				exchangeRates={exchangeRates}
 				value={value}
 				exchangeRate={exchangeRate1}
@@ -59,7 +62,7 @@ const CurrencyConverterPage: FC = () => {
 					changeExchangeRate("exchangeRate1", value)
 				}
 			/>
-			<Block
+			<ExchangeRatesBlock
 				disabled
 				exchangeRates={exchangeRates}
 				value={convertedValue}

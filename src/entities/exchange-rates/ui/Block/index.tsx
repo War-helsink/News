@@ -1,4 +1,4 @@
-import { Component } from "react";
+import type { FC } from "react";
 import {
 	IonInput,
 	IonSegment,
@@ -6,56 +6,55 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 
-import type { BlockProps } from "../../model/props";
+import type { ExchangeRatesBlockProps } from "../../model/props";
 
 import styles from "./styles.module.scss";
 
-class Block extends Component<BlockProps> {
-	render() {
-		const {
-			disabled = false,
-			value = 0,
-			exchangeRate = 0,
-			exchangeRates = [],
-			onChangeValue,
-			onChangeExchangeRate,
-		} = this.props;
-
-		return (
-			<IonToolbar className={styles.block}>
-				<div className="flex flex-col gap-4 w-full">
-					<IonSegment
-						className={styles.segment}
-						value={exchangeRate}
-						onIonChange={(ev) =>
-							onChangeExchangeRate
-								? onChangeExchangeRate(ev.detail.value as number)
-								: null
-						}
-						scrollable
-					>
-						{exchangeRates.map((exchangeRate) => (
-							<IonSegmentButton
-								key={exchangeRate.code}
-								value={exchangeRate.rate}
-							>
-								{exchangeRate.code}
-							</IonSegmentButton>
-						))}
-					</IonSegment>
-					<IonInput
-						disabled={disabled}
-						fill="outline"
-						onIonChange={(e) =>
-							onChangeValue ? onChangeValue(Number(e.detail.value)) : null
-						}
-						value={value}
-						type="number"
-					/>
+const ExchangeRatesBlock: FC<ExchangeRatesBlockProps> = ({
+	disabled = false,
+	value = 0,
+	exchangeRate = 0,
+	exchangeRates = [],
+	onChangeValue,
+	onChangeExchangeRate,
+}) => {
+	return (
+		<IonToolbar className={styles.block}>
+			<div className="flex flex-col gap-4 w-full">
+				<div className={"w-full flex-grow flex items-center justify-center"}>
+					<span className={`${styles.border} px-6 py-3 opacity-35`}>
+						{exchangeRate}
+					</span>
 				</div>
-			</IonToolbar>
-		);
-	}
-}
+				<IonSegment
+					className={styles.border}
+					value={exchangeRate}
+					onIonChange={(ev) =>
+						onChangeExchangeRate
+							? onChangeExchangeRate(ev.detail.value as number)
+							: null
+					}
+					scrollable
+				>
+					{exchangeRates.map((exchangeRate) => (
+						<IonSegmentButton key={exchangeRate.code} value={exchangeRate.rate}>
+							{exchangeRate.code}
+						</IonSegmentButton>
+					))}
+				</IonSegment>
+				<IonInput
+					mode="md"
+					type="number"
+					fill="outline"
+					value={value}
+					disabled={disabled}
+					onIonChange={(e) =>
+						onChangeValue ? onChangeValue(Number(e.detail.value)) : null
+					}
+				/>
+			</div>
+		</IonToolbar>
+	);
+};
 
-export default Block;
+export default ExchangeRatesBlock;
