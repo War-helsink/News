@@ -13,7 +13,7 @@ class BaseLayouts extends React.Component {
 			<MenuWrapper>
 				<Header />
 				<IonContent>
-					<div className="p-6 grow min-h-full">
+					<div className="p-6 min-h-full">
 						<Outlet />
 					</div>
 					<Footer />

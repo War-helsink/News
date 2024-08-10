@@ -1,4 +1,4 @@
-import ExchangeRatesBlock from "./ui/Block";
+import ExchangeRatesBlock from "./ui/ExchangeRatesBlock";
 
 export type {
 	ExchangeRates,

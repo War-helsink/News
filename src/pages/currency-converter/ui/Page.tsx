@@ -1,4 +1,5 @@
 import { type FC, useEffect, useState, useCallback, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 
 import {
 	ExchangeRatesBlock,
@@ -52,26 +53,31 @@ const CurrencyConverterPage: FC = () => {
 	);
 
 	return (
-		<main className="grid grid-cols-1 sm:grid-cols-2 gap-7 w-full sm:w-[800px] mx-auto my-[100px]">
-			<ExchangeRatesBlock
-				exchangeRates={exchangeRates}
-				value={value}
-				exchangeRate={exchangeRate1}
-				onChangeValue={changeValue}
-				onChangeExchangeRate={(value) =>
-					changeExchangeRate("exchangeRate1", value)
-				}
-			/>
-			<ExchangeRatesBlock
-				disabled
-				exchangeRates={exchangeRates}
-				value={convertedValue}
-				exchangeRate={exchangeRate2}
-				onChangeExchangeRate={(value) =>
-					changeExchangeRate("exchangeRate2", value)
-				}
-			/>
-		</main>
+		<>
+			<Helmet>
+				<title>Converter</title>
+			</Helmet>
+			<main className="grid grid-cols-1 sm:grid-cols-2 gap-7 w-full sm:w-[800px] mx-auto my-[100px]">
+				<ExchangeRatesBlock
+					exchangeRates={exchangeRates}
+					value={value}
+					exchangeRate={exchangeRate1}
+					onChangeValue={changeValue}
+					onChangeExchangeRate={(value) =>
+						changeExchangeRate("exchangeRate1", value)
+					}
+				/>
+				<ExchangeRatesBlock
+					disabled
+					exchangeRates={exchangeRates}
+					value={convertedValue}
+					exchangeRate={exchangeRate2}
+					onChangeExchangeRate={(value) =>
+						changeExchangeRate("exchangeRate2", value)
+					}
+				/>
+			</main>
+		</>
 	);
 };
 

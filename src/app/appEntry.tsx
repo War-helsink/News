@@ -7,6 +7,7 @@ import { IonApp } from "@ionic/react";
 import { ThemeProvider } from "./providers/ThemeContext";
 import { store } from "./appStore";
 
+import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import { appRouter } from "./appRouter";
 
@@ -25,7 +26,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 		<IonApp>
 			<ThemeProvider>
 				<Provider store={store}>
-					<RouterProvider router={appRouter} />
+					<HelmetProvider>
+						<RouterProvider router={appRouter} />
+					</HelmetProvider>
 				</Provider>
 			</ThemeProvider>
 		</IonApp>

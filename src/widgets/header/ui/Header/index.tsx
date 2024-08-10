@@ -42,9 +42,6 @@ class Header extends React.Component<unknown> {
 						<Link to={"/slot"}>
 							<IonText>Fruit slots</IonText>
 						</Link>
-						<Link to={"/tik-tok"}>
-							<IonText>Tik Tok</IonText>
-						</Link>
 						<Link to={"/currency-converter"}>
 							<IonText>Currency converter</IonText>
 						</Link>

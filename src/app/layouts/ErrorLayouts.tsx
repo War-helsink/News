@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Header } from "widgets/header";
 import { Footer } from "widgets/footer";
 
@@ -11,6 +12,9 @@ class ErrorLayouts extends React.Component {
 	render() {
 		return (
 			<MenuWrapper>
+				<Helmet>
+					<title>Not Found!</title>
+				</Helmet>
 				<Header />
 				<IonContent>
 					<div className="w-full h-full flex flex-col items-center justify-center gap-4">
