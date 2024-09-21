@@ -7,7 +7,8 @@ export const useSymbolsReel = ({
 	spinning,
 }: UseSymbolsDrumProps) => {
 	const [symbolsReel, setSymbolsReel] = useState<number[]>([]);
-	const [symbolColumnPrev, setSymbolColumnPrev] = useState<number[]>(symbolColumn);
+	const [symbolColumnPrev, setSymbolColumnPrev] =
+		useState<number[]>(symbolColumn);
 
 	useEffect(() => {
 		if (!spinning) {
@@ -19,7 +20,7 @@ export const useSymbolsReel = ({
 		);
 
 		setSymbolsReel([...symbolColumnPrev, ...randomVal, ...symbolColumn]);
-	}, [symbolColumn,  symbolColumnPrev, spinning]);
+	}, [symbolColumn, symbolColumnPrev, spinning, symbols]);
 
 	return symbolsReel;
 };

@@ -6,7 +6,7 @@ import { formatTimeAgo } from "shared/helpers";
 
 import type { NewsDetailsProps } from "../../model/props";
 
-const NewsDetails = ({ item }: NewsDetailsProps) => {
+const NewsDetails: React.FC<NewsDetailsProps> = ({ item }) => {
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2">
 			<SmartImage className="pt-[100%]" src={item.image} />

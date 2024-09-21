@@ -1,74 +1,41 @@
-import React from "react";
-import { connect } from "react-redux";
-
 import { IonButton, IonSelect, IonSelectOption, IonIcon } from "@ionic/react";
-import { language } from "ionicons/icons";
-
-import type { AppDispatch, RootState } from "app/appStore";
+import { language as languageIcon } from "ionicons/icons";
+import { useAppSelector, useAppDispatch } from "app/appStore";
 
 import { setFilters } from "entities/news";
-import { languagesApi, type LanguageType } from "entities/language";
+import { useGetLanguageQuery, type LanguageType } from "entities/language";
 
-import type { LanguageButtonProps } from "../../model/props";
-import type { LanguageButtonState } from "../../model/state";
+const LanguageButton: React.FC = () => {
+	const language = useAppSelector((state) => state.news.filters.language);
+	const { data: languages } = useGetLanguageQuery(null);
+	const dispatch = useAppDispatch();
 
-class LanguageButton extends React.Component<
-	LanguageButtonProps,
-	LanguageButtonState
-> {
-	state: Readonly<LanguageButtonState> = {
-		languages: {},
+	const setLanguage = (language: LanguageType) => {
+		dispatch(setFilters({ key: "language", value: language }));
 	};
 
-	componentDidMount() {
-		this.props
-			.dispatch(languagesApi.endpoints.getLanguage.initiate(null))
-			.then((data) => {
-				if (data.data) {
-					this.setState({ languages: data.data.languages });
-				}
-			});
-	}
+	return (
+		<IonSelect
+			className="block w-12"
+			slot="end"
+			interface="popover"
+			value={language}
+			onIonChange={(ev) => {
+				setLanguage(ev.detail.value);
+			}}
+		>
+			<IonButton slot="label" color="medium" shape="round">
+				<IonIcon slot="icon-only" icon={languageIcon} />
+			</IonButton>
 
-	setLanguage = (language: LanguageType) => {
-		this.props.changeLanguage(language);
-	};
-
-	render() {
-		const { languages } = this.state;
-
-		return (
-			<IonSelect
-				className="block w-12"
-				slot="end"
-				interface="popover"
-				value={this.props.language}
-				onIonChange={(ev) => {
-					this.setLanguage(ev.detail.value);
-				}}
-			>
-				<IonButton slot="label" color="medium" shape="round">
-					<IonIcon slot="icon-only" icon={language} />
-				</IonButton>
-
-				{Object.entries(languages).map(([language, key]) => (
+			{languages &&
+				Object.entries(languages.languages).map(([language, key]) => (
 					<IonSelectOption key={key} value={key}>
 						{language}
 					</IonSelectOption>
 				))}
-			</IonSelect>
-		);
-	}
-}
+		</IonSelect>
+	);
+};
 
-const mapStateToProps = (state: RootState) => ({
-	language: state.news.filters.language,
-});
-
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-	dispatch: dispatch,
-	changeLanguage: (value: LanguageType) =>
-		dispatch(setFilters({ key: "language", value })),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LanguageButton);
+export default LanguageButton;

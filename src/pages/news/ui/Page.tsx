@@ -1,53 +1,41 @@
-import { Component } from "react";
-import { connect } from "react-redux";
+import { useAppSelector } from "app/appStore";
 import { Helmet } from "react-helmet-async";
-
 import { Link } from "react-router-dom";
-
-import type { RootState } from "app/appStore";
 import { NewsDetails } from "entities/news";
-
 import { IonButton } from "@ionic/react";
 
-import type { NewsPageProps } from "../model/props";
+const NewsPage: React.FC = () => {
+	const currentNews = useAppSelector((state) => state.news.currentNews);
 
-class NewsPage extends Component<NewsPageProps> {
-	render() {
-		const { currentNews } = this.props;
-		if (!currentNews) {
-			return (
-				<>
-					<Helmet>
-						<title>Cannot find news</title>
-					</Helmet>
-					<div className="flex flex-col justify-center items-center gap-4 w-full">
-						<h1>Cannot find news</h1>
-						<Link to={"/"}>
-							<IonButton>
-								<h3>Go to main page</h3>
-							</IonButton>
-						</Link>
-					</div>
-				</>
-			);
-		}
+	if (!currentNews) {
 		return (
 			<>
 				<Helmet>
-					<title>News</title>
+					<title>Cannot find news</title>
 				</Helmet>
-				<main className="flex flex-col gap-8 w-full">
-					<h1>{currentNews.title}</h1>
-
-					<NewsDetails item={currentNews} />
-				</main>
+				<div className="flex flex-col justify-center items-center gap-4 w-full">
+					<h1>Cannot find news</h1>
+					<Link to={"/"}>
+						<IonButton>
+							<h3>Go to main page</h3>
+						</IonButton>
+					</Link>
+				</div>
 			</>
 		);
 	}
-}
+	return (
+		<>
+			<Helmet>
+				<title>News</title>
+			</Helmet>
+			<main className="flex flex-col gap-8 w-full">
+				<h1>{currentNews.title}</h1>
 
-const mapStateToProps = (state: RootState) => ({
-	currentNews: state.news.currentNews,
-});
+				<NewsDetails item={currentNews} />
+			</main>
+		</>
+	);
+};
 
-export default connect(mapStateToProps)(NewsPage);
+export default NewsPage;

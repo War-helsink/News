@@ -1,8 +1,4 @@
-import React from "react";
-import { connect } from "react-redux";
-
-import type { AppDispatch } from "app/appStore";
-
+import { useAppDispatch } from "app/appStore";
 import { Search } from "features/search";
 import { Slider } from "features/slider";
 import { Categories } from "features/categories";
@@ -13,40 +9,37 @@ import type { CategoriesType } from "entities/category";
 import type { NewsFiltersProps } from "../../model/props";
 import styles from "./styles.module.scss";
 
-class NewsFilters extends React.Component<NewsFiltersProps> {
-	setCategory = (category: CategoriesType) => {
-		this.props.changeFilter("category", category);
+const NewsFilters: React.FC<NewsFiltersProps> = ({
+	filters,
+	categories,
+	isLoadingCategories,
+}) => {
+	const dispatch = useAppDispatch();
+
+	const setCategory = (category: CategoriesType) => {
+		dispatch(setFilters({ key: "category", value: category }));
 	};
 
-	setKeywords = (keywords: string) => {
-		this.props.changeFilter("keywords", keywords);
+	const setKeywords = (keywords: string) => {
+		dispatch(setFilters({ key: "keywords", value: keywords }));
 	};
 
-	render() {
-		const { filters, categories, isLoadingCategories } = this.props;
+	return (
+		<div className={styles.filters}>
+			<Slider>
+				<Categories
+					type="chip"
+					direction="fullRow"
+					isLoading={isLoadingCategories}
+					categories={categories}
+					currentCategory={filters.category}
+					setCategory={setCategory}
+				/>
+			</Slider>
 
-		return (
-			<div className={styles.filters}>
-				<Slider>
-					<Categories
-						type="chip"
-						direction="fullRow"
-						isLoading={isLoadingCategories}
-						categories={categories}
-						currentCategory={filters.category}
-						setCategory={this.setCategory}
-					/>
-				</Slider>
+			<Search keywords={filters.keywords} setKeywords={setKeywords} />
+		</div>
+	);
+};
 
-				<Search keywords={filters.keywords} setKeywords={this.setKeywords} />
-			</div>
-		);
-	}
-}
-
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-	changeFilter: (key: string, value: string | number | null) =>
-		dispatch(setFilters({ key, value })),
-});
-
-export default connect(null, mapDispatchToProps)(NewsFilters);
+export default NewsFilters;

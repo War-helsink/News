@@ -8,9 +8,9 @@ export interface SmartImageProps {
 }
 
 export interface SkeletonProps {
-	count: number;
-	type: SkeletonType;
-	direction: DirectionType;
+	count?: number;
+	type?: SkeletonType;
+	direction?: DirectionType;
 }
 
 export interface ChipProps {

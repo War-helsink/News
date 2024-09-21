@@ -3,7 +3,7 @@ import type { INews } from "./types";
 import type { NewsType } from "shared/interfaces";
 
 export interface NewsCardProps {
-	type: NewsType;
+	type?: NewsType;
 	item: INews;
 	viewNewsSlot?: (news: INews) => ReactNode;
 }
