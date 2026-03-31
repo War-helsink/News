@@ -5,7 +5,6 @@ import {
 	IonToolbar,
 	IonButtons,
 	IonButton,
-	IonText,
 	IonIcon,
 	IonMenuButton,
 } from "@ionic/react";
@@ -34,15 +33,6 @@ const Header: React.FC = () => {
 						</IonButton>
 					</Link>
 					<IonMenuButton color="dark" className="block md:hidden" />
-				</IonButtons>
-
-				<IonButtons className="hidden md:flex justify-center gap-3 uppercase text-base font-normal">
-					<Link to={"/slot"}>
-						<IonText>Fruit slots</IonText>
-					</Link>
-					<Link to={"/currency-converter"}>
-						<IonText>Currency converter</IonText>
-					</Link>
 				</IonButtons>
 
 				<div className={styles.navbar} slot="end" />

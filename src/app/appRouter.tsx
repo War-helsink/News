@@ -1,12 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import BaseLayouts from "./layouts/BaseLayouts";
-import CasinoLayouts from "./layouts/CasinoLayouts";
 import ErrorLayouts from "./layouts/ErrorLayouts";
 
 import { MainPage } from "pages/main";
 import { NewsPage } from "pages/news";
-import { SlotPage } from "pages/slot";
-import { CurrencyConverterPage } from "pages/currency-converter";
 
 export const appRouter = createBrowserRouter([
 	{
@@ -14,13 +11,7 @@ export const appRouter = createBrowserRouter([
 		errorElement: <ErrorLayouts />,
 		children: [
 			{ path: "/", element: <MainPage /> },
-			{ path: "/currency-converter/", element: <CurrencyConverterPage /> },
 			{ path: "/news/:id", element: <NewsPage /> },
 		],
-	},
-	{
-		element: <CasinoLayouts />,
-		errorElement: <ErrorLayouts />,
-		children: [{ path: "/slot/", element: <SlotPage /> }],
 	},
 ]);
